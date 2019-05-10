@@ -1,0 +1,347 @@
+/* 
+	Pseudo-clases - Ejercicio Práctico 
+
+	Este ejercicio te ayudará a repasar un poco lo que ya vimos y a practicar pseudo-clases 
+	Sigue las instrucciones en orden. 
+
+	Reglas: 
+
+		1. No puedes cambiar NADA en el HTML. 
+		2. Hemos agregado un base_styles.css para que la web no sea solo html. Esos estilos tampoco se pueden cambiar!
+		3. Todas las tareas se pueden hacer con pseudoclases!
+		4. No usar clases (.algo) a menos que sea para usar la pseudo-clase .not()
+
+	Repaso:
+
+		:hover 				-->     Cuando pasas el mouse encima
+		
+		:visited 			-->     Un link que  ya fue visitado
+		
+		:first-child 		-->     Solo elementos que son primer hijo de su padre 		
+		:last-child 		-->     Solo elementos que son último hijo de su padre		
+		:nth-child 			-->     El hijo número (expresión)	
+		
+		:not() 				-->     Lo que coloque a su izquierda menos lo que pongo dentro del paréntesis.
+		
+		:valid 				-->     Un input que es válido
+		:invalid 			-->     Un input que es inválido	
+		:required 			-->     Un input requerido	
+		:focus 				-->     Un input que está con Foco
+		
+
+*/
+
+
+/* Tarea Ejemplo: Cambia el color de fondo del h1 a #000 y el color de letra a #0ff */
+
+h1{
+	color:#0ff;
+	background-color:#000;
+}
+
+/* Tarea 1: Cámbiale de color de letra al primer link del header para que sea rojo */
+
+.main-header ul>li:first-child a{
+	color: #ff5555;
+}
+
+/* Tarea 2: Cámbiale de color de letra al segundo link del header para que sea verde */
+
+.main-header ul>li:nth-child(2) a{
+	color: #55ff55;
+}
+
+/* Tarea 3: Cámbiale de color de letra al tercer link del header para que sea azul claro */
+
+.main-header ul>li:nth-child(3) a{
+	color: #5555ff;
+}
+
+/* Tarea 4: Cámbiale de color de letra al cuarto link del header para que sea amarillo */
+
+.main-header ul>li:last-child a{
+	color: yellowgreen;
+}
+
+/* Tarea 5: Ahora agregale una regla a cada uno de ellos para que su color de fondo cambie al mismo color, pero más oscuro, cuando le pasas el mouse por encima */
+
+a{
+	text-align: center;
+	display: block;
+}
+
+.main-header ul>li:first-child a:hover{
+	color: red;
+}
+
+.main-header ul>li:nth-child(2) a:hover{
+	color: green;
+}
+
+.main-header ul>li:nth-child(3) a:hover{
+	color: blue;
+}
+
+.main-header ul>li:last-child a:hover{
+	color: yellow;
+}
+
+.main-header ul>li:hover{
+	cursor: pointer;
+}
+/* Tarea 6: No te olvides de agregarle cursor: pointer; para que salga la manito cuando le pasamos el mouse por encima a los items del menu (a todos) */
+
+.main-header ul>li:hover{
+	background-color: #cccccc;
+	cursor: pointer;
+}
+
+/* Tarea 7: A la primera Noticia, colócale un background-color de #3e3e3e */
+
+article{
+	padding: 10px 25px 30px;
+}
+
+.content-container article:first-child{
+	background-color: #3e3e3e;
+}
+
+/* Tarea 8: A todas las noticias impares cámbiales el background-color a #ffffff */
+
+.content-container article:nth-child(odd){
+	background-color: #ffffff;
+}
+
+/* Tarea 9: A las noticias n° 3, 6 y 9 (multiplos de 9) colócales background #660066 */
+
+.content-container article:nth-child(3n + 3){
+	background-color: #660066;
+}
+
+/* Tarea 10: A todos los párrafos pequeños (el segundo párrafo de cada artículo) colócale text-transform:uppercase; para que sean mayúsculas */
+
+.content-container article p:last-child{
+	text-transform: uppercase;
+}
+
+/* Tarea 11: Al h2 Lista de Intereses cámbiale el color a #ffffff, pero sin usar clases! */
+
+section:nth-child(4) h2{
+	color: #ffffff;
+}
+
+/* Tarea 12: Al párrafo que está debajo del h1 cámbiale de tamaño de letra a 20px, no vale usar: h1 ni clases (solo section y pseudo-clases) */
+
+section:nth-child(2) p{
+	font-size: 20px;
+}
+
+/* Tarea 13: Colócale text-transform:uppercase a todos los h3 dentro de un article MENOS al h3 que está dentro del article con clase .especial */
+
+article:not(.especial) h3{
+	text-transform: uppercase;
+}
+
+/* Tarea 14: Colócale un borde verde de 1px de ancho a los inputs que estan validados */
+
+input:valid{
+	border: 1px #00ff00 solid;
+}
+
+/* Tarea 15: Colócale un borde rojo de 1px de ancho a los inputs que no estan validados */
+
+input:invalid{
+	border: 1px #ff0000 solid;	
+}
+
+/* Tarea 16: Colócale un fondo de color rojo claro a los inputs que son requeridos */
+
+input:required{
+	background-color: #ff5555;
+}
+
+/* Tarea 17: Colócale un background anaranjado al div que es padre de las "Frutas preferidas"  Sin usar clases! */
+
+section:nth-child(4)>div div:nth-child(2) div:nth-child(1){
+	background-color: orange;
+}
+
+/* Tarea 18: Colócale un background azul claro al div que es padre de las "Películas preferidas"  Sin usar clases!  */
+
+section:nth-child(4)>div div:nth-child(2) div:nth-child(2){
+	background-color: #5555ff;
+}
+
+/* Tarea 19: Colócale un borde punteado de 1px azul a todos los artículos menos al 4to, 6to y 8tvo */
+
+section:nth-child(3) article:nth-child(4){
+	border: 1px blue dotted;
+}
+section:nth-child(3) article:nth-child(6){
+	border: 1px blue dotted;
+}
+section:nth-child(3) article:nth-child(8){
+	border: 1px blue dotted;
+}
+
+/* Tarea 20: Colócale un tipo de letra distinto a cada fruta preferida (solo puedes usar la clase ".second-section" */
+
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:first-child{
+	font-family:Helvetica;
+}
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:nth-child(2){
+	font-family: fantasy;
+}
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:last-child{
+	font-family: serif;
+}
+
+/* Tarea 21: Colócale un tipo de letra distinto a cada película preferida (solo puedes usar la clase ".second-section"  */
+
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:first-child{
+	font-family: Helvetica;
+}
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:nth-child(2){
+	font-family: fantasy;
+}
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:last-child{
+	font-family: serif;
+}
+
+/* Tarea 22: Colócale un border-bottom de 1px solid black y padding de 5px a la primera y la segunda frutas */
+
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:first-child{
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:nth-child(2){
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+/* Tarea 23: Colócale un border-bottom de 1px solid black y padding de 5px a la primera y la segunda películas  */
+
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:nth-child(2){
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:last-child{
+	border-bottom: 1px solid black;
+	padding: 5px;
+}
+
+/* Tarea 24: Haz que el tamaño de letra de la primera fruta sea de 20px, la segunda de 15px y la tercera de 10px */
+
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:first-child{
+	font-size: 20px;
+}
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:nth-child(2){
+	font-size: 15px;
+}
+.second-section div:nth-child(2) div:first-child ol:nth-child(2) li:last-child{
+	font-size: 10px;
+}
+
+
+/* Tarea 25: Haz que el tamaño de letra de la primera película sea de 20px, la segunda de 15px y la tercera de 10px */
+
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:first-child{
+	font-size: 20px;
+}
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:nth-child(2){
+	font-size: 15px;
+}
+.second-section div:nth-child(2) div:last-child ol:nth-child(2) li:last-child{
+	font-size: 10px;
+}
+
+/* Tarea 26: Haz que el octavo artículo tenga un borde dotted rojo de 1px SIN usar la clase .special */
+
+.first-section .container .content-container article:nth-child(8){
+	border: red 1px dotted; 
+}
+
+/* Tarea 27: EXTRA CREDIT: Imagina qué más puedes hacer con Pseudo-clases y si encuentras algo que no hemos visto, cuéntalo a la clase! */
+
+/****   PSEUDO ELEMENTOS ****/
+
+/* Tarea 27: Todos los h2 dentro de un Article, deben tener su primera letra en mayúsculas y del doble de tamaño del resto del h2.  */
+
+article h3::first-letter{
+	text-transform: uppercase;
+	font-size: 2.34em;
+}
+
+/* Tarea 28: La primera línea del párrafo largo dentro de article.special debe tener 4px mas que el parrafo normal de tamaño de letra.  */
+
+.especial p{
+	font-size: 16px;
+}
+
+.especial p:nth-child(2)::first-line{
+	font-size: 20px;
+}
+
+/* Tarea 29: Colócale un fondo de color (el que tu quieras) a las letras seleccionadas por el usuario en todos los párrafos de la pagina  */
+
+p::selection{
+	background-color: #000000;
+	color: #ffffff;
+}
+
+/* Tarea 30: Colócale un '&check;' despues de cada pelicula que hayas visto y una '&cross;' despues de la pelicula que no hayas visto No vale agregarlo al HTML de frente. Tiene que ser con puro CSS!  */
+
+.content-container div:nth-child(2) li:nth-child(1n +2)::after{
+	content: "✓";
+	font-size: 20px;
+	color: #00ff00;
+	font-weight: 800;
+}
+
+.content-container div:nth-child(2) li:nth-child(1)::after{
+	content: '×';
+	font-size: 20px;
+	color: #ff0000;
+	font-weight: 800;
+}
+
+/* Tarea 31: Cambia las frutas preferidas por alguna que este aqui > https://emojipedia.org/search/?q=fruits y luego agregales su emoji al inicio (antes de cada nombre de fruta) No vale agregarlo al HTML de frente.  Tiene que ser con puro CSS! */
+
+.content-container div:nth-child(1) li:nth-child(1)::before{
+	content: '🍋'
+}
+.content-container div:nth-child(1) li:nth-child(2)::before{
+	content: '🍓'
+}
+.content-container div:nth-child(1) li:nth-child(3)::before{
+	content: '🍈';
+}
+
+/* Tarea 32: Agrégale un asterisco rojo (*) después de cada label que acompañe a un input que tenga el atributo required.  No vale agregarlo al HTML de frente. Tiene que ser con puro CSS!   */
+
+.contact-section form label:nth-child(1)::after{
+	content: '(*)';
+	color: #ff0000;
+}
+.contact-section form label:nth-child(3)::after{
+	content: '(*)';
+	color: #ff0000;
+}
+.contact-section form label:nth-child(7)::after{
+	content: '(*)';
+	color: #ff0000;
+}
+
+/* Tarea 33: A cada fruta agrégale al final su precio en dolares incluyendo el símbolo de dolar (https://dev.w3.org/html5/html-author/charref), no vale cambiar el html. Todo con css.   */
+
+.content-container div:nth-child(1) li:nth-child(3)::after{
+	content: '$.3'
+}
+
+/* Tarea 34: A cada h2 principal (titulo de seccion) agregale dos &sect; a la izquierda y dos &sect; a la derecha, pero sobre fondo blanco, deben ser negras y sobre fondo gris, blancas. Sin Cambiar el HTML. Intenta hacerlo sin usar ni 1 clase.   */
+
+/* Tarea 35: Agrega un after a todas las secciones menos la primera (banner) y la ultima (contacto) que tenga una imagen de fondo url(descarga.jpg)  y ponle una altura de 250px al elemento. Ademas, colocale estas propiedades:  background-size: cover; background-position: center; background-attachment: fixed;*/
+
+/* Tarea 36: Crea un After para todos los links de la página, que solo se vea cuando estás haciendo hover al link y que como contenido muestre su atributo href (ponle el estilo que quieras) */
+
+/* Tarea 37: Si llegaste hasta aquí... Felicitaciones!! Ya estas listo para usar pseudo-clases y pseudo-elementos en todos tus proyectos :D Agréga un after al h1 de la página que diga "TERMINADO!!" en rojo, grande y que se ponga encima del titulo como los sellos de TOP SECRET! (referencia: https://previews.123rf.com/images/gorkemdemir/gorkemdemir1409/gorkemdemir140901270/31998825-finished-red-rubber-stamp-vector-over-a-white-background-.jpg )*/
